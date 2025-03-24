@@ -37,24 +37,9 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();  // If you need a password encoder for other parts
+        return new BCryptPasswordEncoder();
     }
-
-    // If you want to use UserDetailsService, define it here if needed
 }
 
-
-
-
-//@Configuration
-//public class SecurityConfig {
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        return http
-//                .csrf(csrf -> csrf.disable())
-//                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll()) // Allow all requests
-//                .build();
-//    }
-//}
 
 
