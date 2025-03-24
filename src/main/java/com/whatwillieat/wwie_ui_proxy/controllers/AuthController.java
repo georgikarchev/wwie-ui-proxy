@@ -1,7 +1,5 @@
 package com.whatwillieat.wwie_ui_proxy.controllers;
 
-import com.whatwillieat.wwie_ui_proxy.dto.UserLoginRequest;
-import com.whatwillieat.wwie_ui_proxy.dto.UserRegistrationRequest;
 import com.whatwillieat.wwie_ui_proxy.service.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

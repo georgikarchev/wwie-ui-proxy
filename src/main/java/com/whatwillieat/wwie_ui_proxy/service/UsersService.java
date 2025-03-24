@@ -1,8 +1,6 @@
 package com.whatwillieat.wwie_ui_proxy.service;
 
 import com.whatwillieat.wwie_ui_proxy.clients.UsersClient;
-import com.whatwillieat.wwie_ui_proxy.dto.UserLoginRequest;
-import com.whatwillieat.wwie_ui_proxy.dto.UserRegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

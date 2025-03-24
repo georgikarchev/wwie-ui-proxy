@@ -1,7 +1,5 @@
 package com.whatwillieat.wwie_ui_proxy.clients;
 
-import com.whatwillieat.wwie_ui_proxy.dto.UserLoginRequest;
-import com.whatwillieat.wwie_ui_proxy.dto.UserRegistrationRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
