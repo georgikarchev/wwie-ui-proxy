@@ -3,6 +3,8 @@ package com.whatwillieat.wwie_ui_proxy.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -10,8 +12,15 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private static final String SECRET = "your-very-secure-secret-key-your-very-sec"; // Must be 256-bit
-    private static final Key SECRET_KEY = Keys.hmacShaKeyFor(SECRET.getBytes());
+    @Value("${app.wwie.jwt.secret-key}")
+    private String secret;
+
+    private static Key SECRET_KEY;
+
+    @PostConstruct
+    public void init() {
+        SECRET_KEY = Keys.hmacShaKeyFor(secret.getBytes());
+    }
 
     public static Claims validateToken(String token) {
         return Jwts.parser()

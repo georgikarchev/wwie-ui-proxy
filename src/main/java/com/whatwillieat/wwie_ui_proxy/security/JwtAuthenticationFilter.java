@@ -21,8 +21,7 @@ import java.util.Collections;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    @Value("${app.wwie.jwt.secret-key}")
-    private String secret_key;
+
     private final String SECRET_KEY = "your-very-secure-secret-key-your-very-sec"; // Or load from config
 
     @Override
