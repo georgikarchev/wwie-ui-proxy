@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "users-service", url = "http://localhost:8084/api/v1/users")
+@FeignClient(name = "users-service", url = "${app.wwie-users.url}")
 public interface UsersClient {
-    @PostMapping("/login")
+    @PostMapping("/users/login")
     ResponseEntity<String> login(@RequestHeader("X-API-KEY") String apiKey, @RequestBody UserLoginRequest request);
 
-    @PostMapping("/register")
+    @PostMapping("/users/register")
     ResponseEntity<String> register(@RequestHeader("X-API-KEY") String apiKey, @RequestBody UserRegistrationRequest request);
 }
 
