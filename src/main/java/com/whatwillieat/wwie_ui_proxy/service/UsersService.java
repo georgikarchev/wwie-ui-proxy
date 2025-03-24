@@ -19,14 +19,14 @@ public class UsersService {
     @Value("${app.wwie-users.api-key}")
     private String apiKey;
 
-    public String login(UserLoginRequest request) {
+    public String login(String request) {
         log.info("Calling users service for login...");
         ResponseEntity<String> response = usersClient.login(apiKey, request);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
 
-    public String register(UserRegistrationRequest request) {
+    public String register(String request) {
         log.info("Calling users service for register...");
         ResponseEntity<String> response = usersClient.register(apiKey, request);
         log.info("Received response: {}", response.getBody());
