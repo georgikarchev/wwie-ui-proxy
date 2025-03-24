@@ -27,7 +27,6 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())  // Disable CSRF, as we're using JWT
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(HttpMethod.POST, apiBaseUrl + "/auth/login", apiBaseUrl + "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, apiBaseUrl + "/auth/test").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

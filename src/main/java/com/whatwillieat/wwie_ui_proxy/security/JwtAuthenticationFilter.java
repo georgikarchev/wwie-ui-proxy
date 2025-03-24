@@ -1,5 +1,6 @@
 package com.whatwillieat.wwie_ui_proxy.security;
 
+import com.whatwillieat.wwie_ui_proxy.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -22,7 +23,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Value("${app.wwie.jwt.secret-key}")
     private String secret_key;
-    private final String SECRET_KEY = "your-secret-key"; // Or load from config
+    private final String SECRET_KEY = "your-very-secure-secret-key-your-very-sec"; // Or load from config
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -33,11 +34,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             token = token.substring(7); // Remove "Bearer " prefix
 
             try {
-                Claims claims = Jwts.parser()
-                        .setSigningKey(SECRET_KEY)
-                        .build()
-                        .parseClaimsJws(token)
-                        .getBody();
+                Claims claims = JwtUtil.validateToken(token);
 
                 Authentication authentication = new UsernamePasswordAuthenticationToken(
                         claims.getSubject(), null, Collections.emptyList());
