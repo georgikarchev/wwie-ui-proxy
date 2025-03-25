@@ -46,6 +46,14 @@ public class UsersService {
         return response.getBody();
     }
 
+    public Object updateMe(ObjectNode rawRequest) {
+        UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
+        log.info("Calling users service for updateUser...");
+        ResponseEntity<Object> response = usersClient.updateUser(apiKey, userIdFromJwt, rawRequest);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
+
     public Object deleteUser(UUID userId) {
         log.info("Calling users service for deleteUser...");
         ResponseEntity<Object> response = usersClient.deleteUser(apiKey, userId);

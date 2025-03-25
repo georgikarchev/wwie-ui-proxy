@@ -20,6 +20,11 @@ public class UserController {
         return ResponseEntity.ok(usersService.getUser());
     }
 
+    @PutMapping("/me")
+    public ResponseEntity<Object> updateMe(@RequestBody ObjectNode rawRequest) {
+        return ResponseEntity.ok(usersService.updateMe(rawRequest));
+    }
+
     @DeleteMapping("/{userId}")
     public ResponseEntity<Object> deleteUser(@PathVariable UUID userId) {
         usersService.deleteUserByAdmin(userId);
