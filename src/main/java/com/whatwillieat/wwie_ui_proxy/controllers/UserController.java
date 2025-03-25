@@ -17,7 +17,13 @@ public class UserController {
 
     @GetMapping("/me")
     public ResponseEntity<Object> me() {
-        UUID userId = SecurityUtil.getAuthenticatedUserId();
-        return ResponseEntity.ok(usersService.getUser(userId));
+        return ResponseEntity.ok(usersService.getUser());
     }
+
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Object> deleteUser(@PathVariable UUID userId) {
+        usersService.deleteUserByAdmin(userId);
+        return ResponseEntity.ok().build();
+    }
+
 }
