@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -28,6 +30,13 @@ public class UsersService {
     public String register(ObjectNode rawRequest) {
         log.info("Calling users service for register...");
         ResponseEntity<String> response = usersClient.register(apiKey, rawRequest);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
+
+    public Object getUser(UUID userId) {
+        log.info("Calling users service for getUser...");
+        ResponseEntity<Object> response = usersClient.getUser(apiKey, userId);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }

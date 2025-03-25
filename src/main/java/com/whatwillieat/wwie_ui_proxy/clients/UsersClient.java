@@ -3,9 +3,9 @@ package com.whatwillieat.wwie_ui_proxy.clients;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @FeignClient(name = "users-service", url = "${app.wwie-users.url}")
 public interface UsersClient {
@@ -14,6 +14,9 @@ public interface UsersClient {
 
     @PostMapping("/users/register")
     ResponseEntity<String> register(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
+
+    @GetMapping("/users/{userId}")
+    ResponseEntity<Object> getUser(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID userId);
 }
 
 
