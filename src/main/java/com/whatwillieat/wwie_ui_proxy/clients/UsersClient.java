@@ -26,6 +26,9 @@ public interface UsersClient {
 
     @PutMapping("/users/{userId}")
     ResponseEntity<Object> updateUser(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID userId, @RequestBody ObjectNode rawRequest);
+
+    @PutMapping("/users/{userId}/role")
+    ResponseEntity<Object> updateUserRole(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID userId, @RequestBody ObjectNode rawRequest);
 }
 
 

@@ -84,4 +84,17 @@ public class UsersService {
         deleteUser(userId);
     }
 
+    public Object updateUserRole(UUID userId, ObjectNode rawRequest) {
+        UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
+
+        if (!isAdmin(userIdFromJwt)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access denied");
+        }
+
+        log.info("Calling users service for updateUserRole...");
+        ResponseEntity<Object> response = usersClient.updateUserRole(apiKey, userId, rawRequest);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
+
 }
