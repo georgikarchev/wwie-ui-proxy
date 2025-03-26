@@ -1,7 +1,7 @@
 package com.whatwillieat.wwie_ui_proxy.controllers;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.whatwillieat.wwie_ui_proxy.service.UsersService;
+import com.whatwillieat.wwie_ui_proxy.service.UserService;
 import com.whatwillieat.wwie_ui_proxy.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +14,16 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final UsersService usersService;
+    private final UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody ObjectNode rawRequest) {
-        return ResponseEntity.ok(usersService.login(rawRequest));
+        return ResponseEntity.ok(userService.login(rawRequest));
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody ObjectNode rawRequest) {
-        return ResponseEntity.ok(usersService.register(rawRequest));
+        return ResponseEntity.ok(userService.register(rawRequest));
     }
 
     @GetMapping("/test")

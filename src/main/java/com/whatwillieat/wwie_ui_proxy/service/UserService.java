@@ -1,7 +1,7 @@
 package com.whatwillieat.wwie_ui_proxy.service;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.whatwillieat.wwie_ui_proxy.clients.UsersClient;
+import com.whatwillieat.wwie_ui_proxy.clients.UserClient;
 import com.whatwillieat.wwie_ui_proxy.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,23 +17,23 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UsersService {
+public class UserService {
 
-    private final UsersClient usersClient;
+    private final UserClient userClient;
 
     @Value("${app.wwie-users.api-key}")
     private String apiKey;
 
     public String login(ObjectNode rawRequest) {
         log.info("Calling users service for login...");
-        ResponseEntity<String> response = usersClient.login(apiKey, rawRequest);
+        ResponseEntity<String> response = userClient.login(apiKey, rawRequest);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
 
     public String register(ObjectNode rawRequest) {
         log.info("Calling users service for register...");
-        ResponseEntity<String> response = usersClient.register(apiKey, rawRequest);
+        ResponseEntity<String> response = userClient.register(apiKey, rawRequest);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
@@ -41,7 +41,7 @@ public class UsersService {
     public Object getUser() {
         UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
         log.info("Calling users service for getUser...");
-        ResponseEntity<Object> response = usersClient.getUser(apiKey, userIdFromJwt);
+        ResponseEntity<Object> response = userClient.getUser(apiKey, userIdFromJwt);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
@@ -49,21 +49,21 @@ public class UsersService {
     public Object updateMe(ObjectNode rawRequest) {
         UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
         log.info("Calling users service for updateUser...");
-        ResponseEntity<Object> response = usersClient.updateUser(apiKey, userIdFromJwt, rawRequest);
+        ResponseEntity<Object> response = userClient.updateUser(apiKey, userIdFromJwt, rawRequest);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
 
     public Object deleteUser(UUID userId) {
         log.info("Calling users service for deleteUser...");
-        ResponseEntity<Object> response = usersClient.deleteUser(apiKey, userId);
+        ResponseEntity<Object> response = userClient.deleteUser(apiKey, userId);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
 
     public boolean isAdmin(UUID userId) {
         log.info("Calling users service for isAdmin...");
-        ResponseEntity<Object> response = usersClient.isAdmin(apiKey, userId);
+        ResponseEntity<Object> response = userClient.isAdmin(apiKey, userId);
         log.info("Received response: {}", response.getBody());
 
         Object body = response.getBody();
@@ -92,7 +92,7 @@ public class UsersService {
         }
 
         log.info("Calling users service for updateUserRole...");
-        ResponseEntity<Object> response = usersClient.updateUserRole(apiKey, userId, rawRequest);
+        ResponseEntity<Object> response = userClient.updateUserRole(apiKey, userId, rawRequest);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }

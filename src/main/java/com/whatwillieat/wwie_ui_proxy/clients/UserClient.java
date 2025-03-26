@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @FeignClient(name = "users-service", url = "${app.wwie-users.url}")
-public interface UsersClient {
+public interface UserClient {
     @PostMapping("/users/login")
     ResponseEntity<String> login(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
 

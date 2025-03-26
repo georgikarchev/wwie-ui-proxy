@@ -1,8 +1,7 @@
 package com.whatwillieat.wwie_ui_proxy.controllers;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.whatwillieat.wwie_ui_proxy.service.UsersService;
-import com.whatwillieat.wwie_ui_proxy.util.SecurityUtil;
+import com.whatwillieat.wwie_ui_proxy.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,26 +12,26 @@ import java.util.UUID;
 @RequestMapping("${app.API_V1_BASE_URL}/users")
 @RequiredArgsConstructor
 public class UserController {
-    private final UsersService usersService;
+    private final UserService userService;
 
     @GetMapping("/me")
     public ResponseEntity<Object> me() {
-        return ResponseEntity.ok(usersService.getUser());
+        return ResponseEntity.ok(userService.getUser());
     }
 
     @PutMapping("/me")
     public ResponseEntity<Object> updateMe(@RequestBody ObjectNode rawRequest) {
-        return ResponseEntity.ok(usersService.updateMe(rawRequest));
+        return ResponseEntity.ok(userService.updateMe(rawRequest));
     }
 
     @PutMapping("/{userId}/role")
     public ResponseEntity<Object> updateUserRole(@PathVariable UUID userId, @RequestBody ObjectNode rawRequest) {
-        return ResponseEntity.ok(usersService.updateUserRole(userId, rawRequest));
+        return ResponseEntity.ok(userService.updateUserRole(userId, rawRequest));
     }
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<Object> deleteUser(@PathVariable UUID userId) {
-        usersService.deleteUserByAdmin(userId);
+        userService.deleteUserByAdmin(userId);
         return ResponseEntity.ok().build();
     }
 
