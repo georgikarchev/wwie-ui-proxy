@@ -53,4 +53,11 @@ public class MealService {
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
+
+    public Object addIngredientToMeal(UUID mealId, ObjectNode rawRequest) {
+        log.info("Calling meals service for addIngredientToMeal...");
+        ResponseEntity<Object> response = mealClient.addIngredientToMeal(apiKey, mealId, rawRequest);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
 }
