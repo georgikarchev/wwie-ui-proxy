@@ -46,4 +46,11 @@ public class MealService {
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }
+
+    public Object deleteMeal(UUID mealId) {
+        log.info("Calling meals service for deleteMeal...");
+        ResponseEntity<Object> response = mealClient.deleteMeal(apiKey, mealId);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
 }

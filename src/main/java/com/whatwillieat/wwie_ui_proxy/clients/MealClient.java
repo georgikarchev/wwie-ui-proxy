@@ -23,6 +23,9 @@ public interface MealClient {
     @PostMapping("/meals")
     ResponseEntity<Object> createMeal(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
 
+    @DeleteMapping("/meals/{mealId}")
+    ResponseEntity<Object> deleteMeal(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID mealId);
+
     // Ingredients
     @GetMapping("/ingredients")
     ResponseEntity<Object> findIngredients(@RequestHeader("X-API-KEY") String apiKey);
@@ -35,4 +38,7 @@ public interface MealClient {
 
     @PostMapping("/ingredients")
     ResponseEntity<Object> createIngredient(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
+
+    @DeleteMapping("/ingredients/{ingredientId}")
+    ResponseEntity<Object> deleteIngredient(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID ingredientId);
 }

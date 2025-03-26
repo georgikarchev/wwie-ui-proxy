@@ -47,4 +47,10 @@ public class IngredientService {
         return response.getBody();
     }
 
+    public Object deleteIngredient(UUID ingredientId) {
+        log.info("Calling meals service for deleteIngredient...");
+        ResponseEntity<Object> response = mealClient.deleteIngredient(apiKey, ingredientId);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
 }

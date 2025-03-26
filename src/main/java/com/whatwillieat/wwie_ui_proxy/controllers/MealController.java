@@ -34,4 +34,9 @@ public class MealController {
     public ResponseEntity<Object> createMeal(@RequestBody ObjectNode rawRequest) {
         return ResponseEntity.ok(mealService.createMeal(rawRequest));
     }
+
+    @DeleteMapping("/{mealId}")
+    public ResponseEntity<Object> deleteMeal(@PathVariable UUID mealId) {
+        return ResponseEntity.ok(mealService.deleteMeal(mealId));
+    }
 }

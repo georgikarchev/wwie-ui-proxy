@@ -22,12 +22,12 @@ public class IngredientController {
     }
 
     @GetMapping("/{ingredientId}")
-    public ResponseEntity<Object> findMeal(@PathVariable UUID ingredientId) {
+    public ResponseEntity<Object> findIngredient(@PathVariable UUID ingredientId) {
         return ResponseEntity.ok(ingredientService.findIngredient(ingredientId));
     }
 
     @PutMapping("/{ingredientId}")
-    public ResponseEntity<Object> updateMeal(@PathVariable UUID ingredientId, @RequestBody ObjectNode rawRequest) {
+    public ResponseEntity<Object> updateIngredient(@PathVariable UUID ingredientId, @RequestBody ObjectNode rawRequest) {
         return ResponseEntity.ok(ingredientService.updateIngredient(ingredientId,rawRequest));
     }
 
@@ -36,4 +36,8 @@ public class IngredientController {
         return ResponseEntity.ok(ingredientService.createIngredient(rawRequest));
     }
 
+    @DeleteMapping("/{ingredientId}")
+    public ResponseEntity<Object> deleteIngredient(@PathVariable UUID ingredientId) {
+        return ResponseEntity.ok(ingredientService.deleteIngredient(ingredientId));
+    }
 }
