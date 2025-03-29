@@ -24,8 +24,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())  // Disable CSRF, as we're using JWT
+                .cors(cors -> cors.configure(http))
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, apiBaseUrl + "/auth/login", apiBaseUrl + "/auth/register").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -33,6 +35,8 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
