@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
@@ -26,12 +27,19 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configure(http))
                 .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests(authz -> authz.anyRequest().permitAll())
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, apiBaseUrl + "/auth/login", apiBaseUrl + "/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, apiBaseUrl + "/auth/login", apiBaseUrl + "/api/v1/auth/register").permitAll()
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+//                        .anyRequest().permitAll()
                         .anyRequest().authenticated()
                 )
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(new Http403ForbiddenEntryPoint()) // Ensure proper handling
+                )
                 .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
 
         return http.build();
     }

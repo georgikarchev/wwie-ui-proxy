@@ -33,7 +33,7 @@ public interface MealClient {
     @GetMapping("/ingredients")
     ResponseEntity<Object> findIngredients(@RequestHeader("X-API-KEY") String apiKey);
 
-    @GetMapping("/ingredient/{ingredientId}")
+    @GetMapping("/ingredients/{ingredientId}")
     ResponseEntity<Object> findIngredient(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID ingredientId);
 
     @PutMapping("/ingredients/{ingredientId}")

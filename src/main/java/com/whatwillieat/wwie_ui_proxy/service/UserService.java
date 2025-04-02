@@ -3,6 +3,7 @@ package com.whatwillieat.wwie_ui_proxy.service;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.whatwillieat.wwie_ui_proxy.clients.UserClient;
 import com.whatwillieat.wwie_ui_proxy.util.SecurityUtil;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,10 +33,17 @@ public class UserService {
     }
 
     public String register(ObjectNode rawRequest) {
-        log.info("Calling users service for register...");
-        ResponseEntity<String> response = userClient.register(apiKey, rawRequest);
-        log.info("Received response: {}", response.getBody());
-        return response.getBody();
+        try {
+            log.info("Calling users service for register...");
+            ResponseEntity<String> response = userClient.register(apiKey, rawRequest);
+            log.info("Response status: {}", response.getStatusCode()); // Log the status
+            log.info("Received response: {}", response.getBody());
+            return response.getBody();
+        } catch (FeignException.BadRequest e) {
+            log.info("Received error response: {}", e.contentUTF8());
+//            return e.contentUTF8();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username or email already taken");
+        }
     }
 
     public Object getUser() {
