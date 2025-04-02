@@ -19,6 +19,9 @@ public interface UserClient {
     @GetMapping("/users/{userId}")
     ResponseEntity<Object> getUser(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID userId);
 
+    @GetMapping("/users")
+    ResponseEntity<Object> getUsers(@RequestHeader("X-API-KEY") String apiKey);
+
     @DeleteMapping("/users/{userId}")
     ResponseEntity<Object> deleteUser(@RequestHeader("X-API-KEY") String apiKey, @PathVariable UUID userId);
 

@@ -54,6 +54,18 @@ public class UserService {
         return response.getBody();
     }
 
+    public Object getUsers() {
+        UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
+
+        if (!isAdmin(userIdFromJwt)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Access denied");
+        }
+        log.info("Calling users service for getUsers...");
+        ResponseEntity<Object> response = userClient.getUsers(apiKey);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
+
     public Object updateMe(ObjectNode rawRequest) {
         UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
         log.info("Calling users service for updateUser...");
