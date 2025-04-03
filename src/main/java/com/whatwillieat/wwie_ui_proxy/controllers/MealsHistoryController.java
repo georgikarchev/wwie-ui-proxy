@@ -17,8 +17,8 @@ public class MealsHistoryController {
 
 
     @PostMapping
-    public ResponseEntity<Object> findMeals(@RequestBody ObjectNode rawRequest) {
-        return ResponseEntity.ok(mealsHistoryService.findMealsHistory(rawRequest));
+    public ResponseEntity<Object> addMealToHistory(@RequestBody ObjectNode rawRequest) {
+        return ResponseEntity.ok(mealsHistoryService.addMealToHistory(rawRequest));
     }
 
     @GetMapping("/recent")

@@ -20,9 +20,9 @@ public class MealsHistoryService {
     @Value("${app.meals-history.api-key}")
     private String apiKey;
 
-    public Object findMealsHistory(ObjectNode rawRequest) {
+    public Object addMealToHistory(ObjectNode rawRequest) {
         log.info("Calling meals-history service for findMealsHistory...");
-        ResponseEntity<Object> response = mealsHistoryClient.findMealsHistory(apiKey, rawRequest);
+        ResponseEntity<Object> response = mealsHistoryClient.addMealToHistory(apiKey, rawRequest);
         log.info("Received response: {}", response.getBody());
         return response.getBody();
     }

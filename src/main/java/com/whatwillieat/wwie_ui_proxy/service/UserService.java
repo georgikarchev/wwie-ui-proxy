@@ -54,6 +54,22 @@ public class UserService {
         return response.getBody();
     }
 
+//    public Object getUserById() {
+//        UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
+//        log.info("Calling users service for getUser...");
+//        ResponseEntity<Object> response = userClient.getUser(apiKey, userIdFromJwt);
+//        log.info("Received response: {}", response.getBody());
+//        return response.getBody();
+//    }
+
+    public Object getUserById(UUID userId) {
+        log.info("Calling users service for getUser...");
+        ResponseEntity<Object> response = userClient.getUser(apiKey, userId);
+        log.info("Received response: {}", response.getBody());
+        return response.getBody();
+    }
+
+
     public Object getUsers() {
         UUID userIdFromJwt = SecurityUtil.getAuthenticatedUserId();
 

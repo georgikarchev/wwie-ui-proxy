@@ -29,6 +29,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUsers());
     }
 
+    @GetMapping("/{userId}")
+    public ResponseEntity<Object> getUser(@PathVariable UUID userId) {
+        return ResponseEntity.ok(userService.getUserById(userId));
+    }
+
     @PutMapping("/{userId}/role")
     public ResponseEntity<Object> updateUserRole(@PathVariable UUID userId, @RequestBody ObjectNode rawRequest) {
         return ResponseEntity.ok(userService.updateUserRole(userId, rawRequest));

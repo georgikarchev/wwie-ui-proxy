@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface MealsHistoryClient {
 
     @PostMapping
-    ResponseEntity<Object> findMealsHistory(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
+    ResponseEntity<Object> addMealToHistory(@RequestHeader("X-API-KEY") String apiKey, @RequestBody ObjectNode rawRequest);
 
     @GetMapping("/recent")
     ResponseEntity<Object> findRecentMeals(@RequestHeader("X-API-KEY") String apiKey, @RequestParam UUID userId, @RequestParam String startDate);
