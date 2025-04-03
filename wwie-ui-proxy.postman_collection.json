@@ -1,0 +1,1338 @@
+{
+	"info": {
+		"_postman_id": "dd662d59-5883-4604-b72c-b8ec1360d673",
+		"name": "wwie-ui-proxy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18892565"
+	},
+	"item": [
+		{
+			"name": "UserClient/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"georgi.karchev@gmail.com\",\n    \"password\":\"Pa55word\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"gogo3\",\n    \"password\":\"Pa55word\",\n    \"email\": \"georgi.karchev.three@gmail.com\",\n    \"profilePictureUrl\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/auth/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"test"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMzNzEyODYsImV4cCI6MTc0MzQ1NzY4Nn0.8h-JIVyFp59mWTXoXyl1urjBr_TvIUuDxHW4CYhs12c",
+						"description": "JWT token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDM2MjYzNTEsImV4cCI6MTc0MzcxMjc1MX0.L_zkyS6dKjYu5-AQ6QIrrIAfHB4LrKySP7oPIpwWgm0",
+						"description": "JWT token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/me",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Georgi Todorov Karchev\",\n    \"email\": \"georgi.karchev@gmail.com\",\n    \"profilePictureLink\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient /users/{id}/role",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userRole\": \"ADMIN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/users/bef8b784-09a7-41c0-bc65-9e1357f8ed62/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"bef8b784-09a7-41c0-bc65-9e1357f8ed62",
+						"role"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserClient/user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "users-api-key-123123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"gogo\",\n    \"email\": \"georgi.karchev@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/api/v1/users/aa5cbf08-c1c9-42f3-ab6a-322eeabc3de1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"aa5cbf08-c1c9-42f3-ab6a-322eeabc3de1"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /meals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMyNjI3NDgsImV4cCI6MTc0MzM0OTE0OH0.fZASfN0LGgKnk8CFv6lStsogt8l5BjEZkZgp3VcTe1U",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /meals/{mealId}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals/0da80fc7-cfdc-45dc-9132-ce394675c7e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals",
+						"0da80fc7-cfdc-45dc-9132-ce394675c7e1"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /meals/{mealId}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Pasta Carbonara 4\",\n    \"description\": null,\n        \"dietaryCategories\": [\n            \"NON_VEGETARIAN\"\n        ],\n        \"mealTypes\": [\n            \"LUNCH\",\n            \"DINNER\"\n        ],\n    \"consumedOn\": \"2025-03-23T12:30:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals/0da80fc7-cfdc-45dc-9132-ce394675c7e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals",
+						"0da80fc7-cfdc-45dc-9132-ce394675c7e1"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient::add ingredient to meal",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Pasta Carbonara 4\",\n    \"description\": null,\n        \"dietaryCategories\": [\n            \"NON_VEGETARIAN\"\n        ],\n        \"mealTypes\": [\n            \"LUNCH\",\n            \"DINNER\"\n        ],\n    \"consumedOn\": \"2025-03-23T12:30:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals/0da80fc7-cfdc-45dc-9132-ce394675c7e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals",
+						"0da80fc7-cfdc-45dc-9132-ce394675c7e1"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /meals",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Vegan Banitsa\",\n    \"description\":\"my test description\",\n    \"dietaryCategories\": [\"VEGAN\"],\n    \"mealTypes\": [\"LUNCH\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /meals/{mealId}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals/0da80fc7-cfdc-45dc-9132-ce394675c7e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals",
+						"0da80fc7-cfdc-45dc-9132-ce394675c7e1"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /ingredients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"ingredients"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /ingredient/{ingredientd}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDM1MDk4OTUsImV4cCI6MTc0MzU5NjI5NX0.Nf2PrOUYpJp1NN87Nhod8KPp24wFGY7JlbhY_6XOu6s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/ingredients/0651d428-f06f-425f-8e0f-97945be06669",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"ingredients",
+						"0651d428-f06f-425f-8e0f-97945be06669"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /ingredients",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"unobtanium\",\n    \"description\":\"my test description of an ingredient\",\n    \"dietaryCategories\": [\"VEGAN\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/ingredients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"ingredients"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /ingretients/{ingredientId}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"unobtanium 3\",\n    \"description\":\"my new test description of an ingredient\",\n    \"dietaryCategories\": [\"VEGAN\", \"DAIRY_FREE\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/ingredients/6702f69d-72af-45cc-aa5a-e157efe3b78a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"ingredients",
+						"6702f69d-72af-45cc-aa5a-e157efe3b78a"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealClient /ingretients/{ingredientId}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDI5MzcxMzgsImV4cCI6MTc0MzAyMzUzOH0.U-hejAw7URcrWQm9ThC6aemRzCbN19hkSis3INWDLH0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/ingredients/6702f69d-72af-45cc-aa5a-e157efe3b78a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"ingredients",
+						"6702f69d-72af-45cc-aa5a-e157efe3b78a"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealsHistory::add meal to user history",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMwMjgzMDQsImV4cCI6MTc0MzExNDcwNH0.hgI043plejW6VWBkTwkEgAah3h8c67N88QIfav1r2Kg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"8f7f2165-b42c-4aef-bf18-5967e19bcaff\",\n    \"mealId\":\"34b8d51f-8072-4630-a36d-72cf17986018\",\n    \"rating\": 1,\n    \"consumedOn\": \"2025-03-26T12:30:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals-history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals-history"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MealsHistory::update rating",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "meals-history-api-key-123123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals-history/0f56ea4d-0c36-4ac8-9617-cfa5d2dcabf7/rating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals-history",
+						"0f56ea4d-0c36-4ac8-9617-cfa5d2dcabf7",
+						"rating"
+					],
+					"query": [
+						{
+							"key": "mealTypes",
+							"value": "SNACK",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user's meals history Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMwMjgzMDQsImV4cCI6MTc0MzExNDcwNH0.hgI043plejW6VWBkTwkEgAah3h8c67N88QIfav1r2Kg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/meals-history/recent?userId=8f7f2165-b42c-4aef-bf18-5967e19bcaff&startDate=2025-03-10T21:43:43.420Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"meals-history",
+						"recent"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "8f7f2165-b42c-4aef-bf18-5967e19bcaff"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-03-10T21:43:43.420Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::createShoppingList",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"b7489fbc-f1d3-4657-acce-0dc68a62da79\",\n    \"name\": \"shopping list created via proxy\",\n    \"description\": null,\n    \"ownerId\": \"8f7f2165-b42c-4aef-bf18-5967e19bcaff\",\n    \"items\": [],\n    \"createdOn\": \"2025-03-28T00:54:38.065724\",\n    \"updatedOn\": \"2025-03-28T00:54:38.065724\",\n    \"deleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::home",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/home",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::shoppingList by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::shoppingListByOwner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/owners/8f7f2165-b42c-4aef-bf18-5967e19bcaff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"owners",
+						"8f7f2165-b42c-4aef-bf18-5967e19bcaff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::shoppingList by id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shopping list 1-1\",\n    \"description\": \"added some description edited\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::deleteShoppingList",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::deleteShoppingListByOwner",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/owners/8f7f2165-b42c-4aef-bf18-5967e19bcaff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"owners",
+						"8f7f2165-b42c-4aef-bf18-5967e19bcaff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::undoDelete ShoppingList",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shopping list 1-1\",\n    \"description\": \"added some description edited\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/undo-delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"undo-delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::createShoppingListItem",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shopping list itme created via proxy #2\",\n    \"description\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::deleteShoppingListItem",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items/1afc0ae4-d231-4447-9988-12d10574d31c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items",
+						"1afc0ae4-d231-4447-9988-12d10574d31c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::undoDeleteShoppingListItem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items/1afc0ae4-d231-4447-9988-12d10574d31c/undo-delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items",
+						"1afc0ae4-d231-4447-9988-12d10574d31c",
+						"undo-delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::updateShoppingListItem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated ITEM NAME\",\n    \"description\": \"Updated ITEM description\",\n    \"checked\": false,\n    \"deleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items/1afc0ae4-d231-4447-9988-12d10574d31c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items",
+						"1afc0ae4-d231-4447-9988-12d10574d31c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::checkShoppingListItem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items/1afc0ae4-d231-4447-9988-12d10574d31c/check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items",
+						"1afc0ae4-d231-4447-9988-12d10574d31c",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShoppingListsClient::uncheckShoppingListItem",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ZjdmMjE2NS1iNDJjLTRhZWYtYmYxOC01OTY3ZTE5YmNhZmYiLCJpYXQiOjE3NDMxMTg0NTgsImV4cCI6MTc0MzIwNDg1OH0.Wy0Ia86GvYulNtlb3efbLRbEvWUdCqRy3djY7UKB-PA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/shopping-lists/b7489fbc-f1d3-4657-acce-0dc68a62da79/items/1afc0ae4-d231-4447-9988-12d10574d31c/uncheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"shopping-lists",
+						"b7489fbc-f1d3-4657-acce-0dc68a62da79",
+						"items",
+						"1afc0ae4-d231-4447-9988-12d10574d31c",
+						"uncheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
